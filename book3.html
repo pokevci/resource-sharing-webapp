@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Book</title>
+  <link rel="stylesheet" href="assets/book.css">
+</head>
+<body>
+
+  <!-- Book Details Section -->
+  <div class="book-details">
+    <button onclick="goBack()" class="back-button">← Back to Materials</button>
+    <img id="book-cover" src="assets/banner-books/book3.png" alt="Book Cover">
+    <h1 id="book-title">Constructing A Nervous System</h1>
+    <h3 id="book-author">Mongo Jefferson</h3>
+    <p id="book-description">Constructing a Nervous System by M. C. Neuron is an insightful and detailed examination of the complex biological and molecular processes that underpin the development of the nervous system. The book delves into how neurons and glial cells are formed, how they connect to create intricate networks, and the mechanisms that allow for communication within these networks.</p>
+    <button class="download-button">
+        <h3>Download Material</h3>
+        <img src="assets/download.png" alt="Download Icon"> <!-- Fixed the typo in 'download.png' -->
+    </button>
+  </div>
+
+  <script>function goBack() {
+    window.location.href = 'index.html';
+  }</script>
+</body>
+</html>

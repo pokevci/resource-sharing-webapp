@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - DataHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="donate-section">
+            <h1>Support Children's Education</h1>
+            <h2>Your Contribution Makes a Difference</h2>
+            <p>At DataHub, we believe in empowering children by providing them the materials they need to learn and grow. 
+                Your donations help provide essential study resources for children in need, making a meaningful impact on 
+                their education and future. Join us in building a better tomorrow.</p>
+
+            <div class="donation-options">
+                <h3>Choose Your Donation Type</h3>
+                <form action="/submit-donation" method="POST">
+                    <label for="donation-amount">Select Donation Amount:</label>
+                    <select id="donation-amount" name="donation-amount">
+                        <option value="10">10 USD</option>
+                        <option value="25">25 USD</option>
+                        <option value="50">50 USD</option>
+                        <option value="100">100 USD</option>
+                        <option value="custom">Custom Amount</option>
+                    </select>
+
+                    <label for="custom-amount" id="custom-amount-label" style="display:none;">Enter Custom Amount (USD):</label>
+                    <input type="number" id="custom-amount" name="custom-amount" style="display:none;" min="1" step="1">
+
+                    <h3>Donation Type</h3>
+                    <label><input type="radio" name="donation-type" value="materials" checked> Donate Materials</label>
+                    <label><input type="radio" name="donation-type" value="money"> Donate Money</label>
+
+                    <button type="submit" class="donate-button">Donate Now</button>
+                </form>
+            </div>
+
+            <div class="thank-you-message">
+                <h3>Thank you for your generosity!</h3>
+                <p>Your donation will help provide much-needed materials for children to further their education.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DataHub - Empowering Education</p>
+    </footer>
+
+    <script>
+        // Show custom amount input when 'Custom Amount' is selected
+        const donationAmount = document.getElementById('donation-amount');
+        const customAmountInput = document.getElementById('custom-amount');
+        const customAmountLabel = document.getElementById('custom-amount-label');
+
+        donationAmount.addEventListener('change', function() {
+            if (this.value === 'custom') {
+                customAmountInput.style.display = 'block';
+                customAmountLabel.style.display = 'block';
+            } else {
+                customAmountInput.style.display = 'none';
+                customAmountLabel.style.display = 'none';
+            }
+        });
+    </script>
+    <style>/* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        header {
+            background-color: #282828;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        header nav ul li a.active {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background-color: #282828;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        
+        main {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Donate Section */
+        .donate-section {
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        
+        .donate-section h1 {
+            text-align: center;
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .donate-section h2 {
+            text-align: center;
+            color: #555;
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+        
+        .donate-section p {
+            text-align: center;
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .donation-options {
+            margin-bottom: 30px;
+        }
+        
+        .donation-options h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .donation-options label {
+            font-size: 16px;
+            display: block;
+            margin: 10px 0;
+        }
+        
+        .donation-options select,
+        .donation-options input[type="number"] {
+            padding: 8px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .donate-button {
+            background-color: #28a745;
+            color: #fff;
+            font-size: 18px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .donate-button:hover {
+            background-color: #218838;
+        }
+        
+        .thank-you-message {
+            background-color: #f0f0f0;
+            padding: 15px;
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        
+        .thank-you-message h3 {
+            font-size: 22px;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        
+        .thank-you-message p {
+            font-size: 16px;
+            color: #555;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .donate-section {
+                padding: 20px;
+            }
+        
+            .donate-button {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .donate-section h1 {
+                font-size: 24px;
+            }
+        
+            .donate-section h2 {
+                font-size: 20px;
+            }
+        
+            .donate-section p {
+                font-size: 14px;
+            }
+        
+            .donate-button {
+                font-size: 16px;
+                padding: 10px;
+            }
+        }
+        </style>
+</body>
+
+</html>
