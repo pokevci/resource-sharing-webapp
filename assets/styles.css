@@ -9,90 +9,198 @@
     color: #333;
     background-color: #f7f7f7;
   }
-  
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(90deg, black, grey);
-    padding: 10px 20px;
-  }
-  
-  /* Logo Styling */
-  .navbar-logo {
-    display: flex;
-    align-items: center;
-    font-size: 2em;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .navbar-logo img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-  }
-  
-  /* Navbar Menu */
-  .navbar-menu {
-    display: flex;
-    list-style: none;
-  }
-  
-  .navbar-menu li {
-    margin: 0 15px;
-  }
-  
-  .navbar-menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 1em;
-    transition: color 0.3s ease;
-  }
-  
-  .navbar-menu a:hover {
-    color: #ffdd57;
-  }
-  
-  /* Login Button */
-  .navbar-login {
-    padding: 8px 20px;
-    background-color: #ffdd57;
-    color: #333;
-    border-radius: 20px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .navbar-login:hover {
-    display: inline-block;  /* Ensures it behaves like a button */
-  padding: 10px 20px;  /* Adds padding for size */
-  font-size: 16px;  /* Sets the font size */
-  font-weight: bold;  /* Makes the text bold */
-  color: #fff;  /* White text color */
-  background-color: #3498db;  /* Blue background color */
-  text-decoration: none;  /* Removes the underline */
-  border-radius: 25px;  /* Curves the corners */
+  /* Improved Navbar Styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #1a1a1a, #333);
+  padding: 15px 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo Styling */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+  color: #ffdd57;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar-logo:hover {
+  color: #fff;
+}
+
+/* Navbar Menu */
+.navbar-menu {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-menu li {
+  margin: 0 15px;
+}
+
+.navbar-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  background-color: #ffdd57;
+  color: #333;
+}
+
+/* Login Button */
+.navbar-login {
+  padding: 10px 20px;
+  background-color: #ffdd57;
+  color: #333;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9em;
   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-login:hover {
+  background-color: #e6c556;
+  transform: scale(1.1);
+}
+
+.navbar-login:active {
+  background-color: #c7aa4e;
+  transform: scale(1);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .navbar-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 200px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
   }
 
-  .navbar-login:hover {
-    background-color: #2980b9;  /* Darker blue on hover */
-    transform: translateY(-3px);  /* Slightly lifts the button on hover */
+  .navbar-menu.show {
+      display: flex;
   }
-  
-  .navbar-login:active {
-    background-color: #1c5984;  /* Even darker blue when clicked */
-    transform: translateY(0);  /* Resets the hover effect when clicked */
+
+  .navbar-menu li {
+      margin: 10px 0;
   }
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .navbar-menu {
-      display: none; /* Hide menu items on mobile */
-    }
+
+  .navbar-menu a {
+      padding: 10px 15px;
   }
+
+  .navbar-menu a:hover {
+      background-color: #444;
+      color: #ffdd57;
+  }
+
+  .navbar-toggle {
+      display: block;
+      font-size: 1.5em;
+      color: #ffdd57;
+      cursor: pointer;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-toggle {
+      display: none;
+  }
+}
+ 
+  /* Book Categories Section */
+.book-categories {
+  padding: 2rem;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.categories-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.category {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.category-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.category h3 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.category:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.category:hover .category-overlay {
+  opacity: 1;
+}
+
   /* Hero Section */
   .hero {
     text-align: center;
@@ -225,3 +333,63 @@
     85% { color: red; }
     100% { color: violet; }
   }
+
+  /* styles.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.library-banner {
+  background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.library-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.banner-content p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.banner-button {
+  text-decoration: none;
+  background-color: #ff6f61;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.banner-button:hover {
+  background-color: #e05a50;
+}
