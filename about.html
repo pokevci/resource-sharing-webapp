@@ -1,16 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/styles.css">
   <title>About Us - DataHub</title>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="#" class="navbar-logo">
+        <img src="assets/logo.png" alt="DataHubly Logo">
+        DataHub
+      </a>
+      </ul>
+      <input type="text" class="search-bar" placeholder="Search for learning materials...">
+      <div class="search-results">
+      </div>
+
+
+      <!-- Menu bar Items -->
+      <ul class="navbar-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="materials.html">Donate Materials</a></li>
+        <li><a href="donate.html">Support</a></li>
+    </nav>
+  </header>
+
+  <main>
+    <section class="about-section">
+      <h1>About DataHub</h1>
+      <p>Welcome to <strong>DataHub</strong>, a community-driven data-sharing platform dedicated to supporting children
+        in need of educational resources. Our mission is to bridge the gap between those who have access to materials
+        and those who need them most. We believe every child deserves the opportunity to learn, grow, and reach their
+        fullest potential—no matter their circumstances.</p>
+    </section>
+
+    <section class="about-section">
+      <h2>What We Do</h2>
+      <p>At DataHub, we connect donors with children in need by providing a simple platform where educational materials
+        like textbooks, notes, online resources, and study guides can be donated. By sharing knowledge, we create a
+        ripple effect that empowers young learners and opens doors to a brighter future.</p>
+    </section>
+
+    <section class="about-section">
+      <h2>How It Works</h2>
+      <p>Donors can upload educational materials to our platform, where they will be carefully categorized and made
+        available to children, parents, and educators who need them. Your contribution makes a real difference—ensuring
+        that no child is left behind.</p>
+    </section>
+
+    <section class="about-section">
+      <h2>Our Vision</h2>
+      <p>We envision a world where education is accessible to all, regardless of financial or geographical barriers.
+        Through the generosity of individuals, organizations, and educators, DataHub strives to make educational
+        resources available to every child who wants to learn.</p>
+    </section>
+
+    <section class="about-section">
+      <h2>Why Choose DataHub?</h2>
+      <ul>
+        <li><strong>Accessible & User-Friendly:</strong> Easy and intuitive to use.</li>
+        <li><strong>Community-Focused:</strong> A network dedicated to supporting children's education.</li>
+        <li><strong>Trustworthy & Secure:</strong> Ensuring all materials are safe for children.</li>
+        <li><strong>Impactful:</strong> Your donations directly affect children's educational journeys.</li>
+      </ul>
+    </section>
+
+    <div class="cta">
+      Join us in sharing knowledge and supporting the next generation of learners—one resource at a time!
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>About Us</h4>
+          <p>We provide the best services to our customers. Stay connected for more updates.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="donate.html">Help Us</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="materials.html">Donate Materials</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <p>Email: info@example.com</p>
+          <p>Phone: +123 456 7890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /*general styles*/
 
     body {
       font-family: 'Arial', sans-serif;
@@ -19,10 +112,10 @@
       line-height: 1.6;
     }
 
+    /*header styles*/
     header {
       background: linear-gradient(90deg, black, grey);
       color: white;
-      padding: 20px;
       text-align: center;
     }
 
@@ -52,6 +145,7 @@
       margin: 0 auto;
     }
 
+    /*about section styles*/
     .about-section {
       background-color: #fff;
       border-radius: 10px;
@@ -61,17 +155,18 @@
     }
 
     .about-section h1 {
-      color: #0080ff;
+      color: #333;
       margin-bottom: 20px;
       font-size: 36px;
       text-align: center;
     }
 
     .about-section h2 {
-      color: #007bff;
+      color: #333;
       margin: 20px 0 10px;
+
       font-size: 28px;
-      border-bottom: 2px solid #007bff;
+      border-bottom: 2px solid #6d6d6d;
       padding-bottom: 5px;
     }
 
@@ -94,98 +189,32 @@
     }
 
     .cta {
-      background-color: #28a745;
+      background-color: #00056d;
       color: white;
       padding: 15px;
       text-align: center;
       border-radius: 5px;
       margin-top: 20px;
       font-size: 20px;
-      transition: background-color 0.3s;
     }
 
-    .cta:hover {
-      background-color: #218838;
-      cursor: pointer;
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .donate-section {
+        padding: 20px;
+      }
+
+      .donate-button {
+        width: 100%;
+      }
     }
 
-    footer {
-      background: linear-gradient(90deg, black, grey);
-      color: white;
-      text-align: center;
-      padding: 15px;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-      margin-top: 20px;
+    @media (max-width: 480px) {
+      .donate-section h1 {
+        font-size: 24px;
+      }
     }
   </style>
-</head>
-<body>
-
-  <header>
-    <nav class="navbar">
-      <!-- Logo -->
-      <a href="#" class="navbar-logo">
-        <img src="assets/logo.png" alt="DataHubly Logo">
-        DataHub
-      </a>
-    </ul>
-    <input type="text" class="search-bar" placeholder="Search for learning materials...">
-    <div class="search-results">
-      <!-- Searched content will be displayed here -->
-    </div>
-    
-
-    <!-- Login Button -->
-      <!-- Menu Items -->
-      <ul class="navbar-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="materials.html">Donate Materials</a></li>
-        <li><a href="donate.html">Support</a></li>
-      </nav>
-  </header>
-
-  <main>
-    <section class="about-section">
-      <h1>About DataHub</h1>
-      <p>Welcome to <strong>DataHub</strong>, a community-driven data-sharing platform dedicated to supporting children in need of educational resources. Our mission is to bridge the gap between those who have access to materials and those who need them most. We believe every child deserves the opportunity to learn, grow, and reach their fullest potential—no matter their circumstances.</p>
-    </section>
-
-    <section class="about-section">
-      <h2>What We Do</h2>
-      <p>At DataHub, we connect donors with children in need by providing a simple platform where educational materials like textbooks, notes, online resources, and study guides can be donated. By sharing knowledge, we create a ripple effect that empowers young learners and opens doors to a brighter future.</p>
-    </section>
-
-    <section class="about-section">
-      <h2>How It Works</h2>
-      <p>Donors can upload educational materials to our platform, where they will be carefully categorized and made available to children, parents, and educators who need them. Your contribution makes a real difference—ensuring that no child is left behind.</p>
-    </section>
-
-    <section class="about-section">
-      <h2>Our Vision</h2>
-      <p>We envision a world where education is accessible to all, regardless of financial or geographical barriers. Through the generosity of individuals, organizations, and educators, DataHub strives to make educational resources available to every child who wants to learn.</p>
-    </section>
-
-    <section class="about-section">
-      <h2>Why Choose DataHub?</h2>
-      <ul>
-        <li><strong>Accessible & User-Friendly:</strong> Easy and intuitive to use.</li>
-        <li><strong>Community-Focused:</strong> A network dedicated to supporting children's education.</li>
-        <li><strong>Trustworthy & Secure:</strong> Ensuring all materials are safe for children.</li>
-        <li><strong>Impactful:</strong> Your donations directly affect children's educational journeys.</li>
-      </ul>
-    </section>
-
-    <div class="cta">
-      Join us in sharing knowledge and supporting the next generation of learners—one resource at a time!
-    </div>
-  </main>
-
-  <footer>
-    <p>&copy; 2024 DataHub. All rights reserved.</p>
-  </footer>
-
 </body>
+
 </html>
