@@ -5,8 +5,9 @@ const router = express.Router();
 // Get all books
 // Get all books
 router.get('/', async (req, res) => {
-    const books = await Book.find().populate('uploadedBy', 'username'); // Populate the uploadedBy field with username
-    res.render('books', { books });
+    const books = await Book.find();
+	// console.log(books);
+    res.render('index', { books });
 });
 
 // Create a new book

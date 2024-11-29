@@ -4,62 +4,15 @@
         <h2 class="categories-title">Our Featured Books of the Week</h2>
       </section>
     <div class="book-grid">
-      <button onclick="location.href='book.html'">
-        <div class="book">
-          <img src="assets/banner-books/book1.png" alt="Book Cover">
-          <h3>Young Mungo</h3>
-          <p>by Douglas Stuart</p>
-        </div>
-      </button>
-      <button onclick="location.href='book.html'">
-        <div class="book">
-          <img src="assets/banner-books/book2.png" alt="Book Cover">
-          <h3>An Immense World</h3>
-          <p>by Ed Yong</p>
-        </div>
-      </button>
-      <button onclick="location.href='book.html'">
-        <div class="book">
-          <img src="assets/banner-books/book3.png" alt="Book Cover">
-          <h3>Constructing A Nervous System</h3>
-          <p>by Margo Jefferson</p>
-        </div>
-      </button>
-      <button onclick="location.href='book.html'">
-        <div class="book">
-          <img src="assets/banner-books/book4.png" alt="Book Cover">
-          <h3>I'm Glad My Mom Died</h3>
-          <p>by Jennette McCurdy</p>
-        </div>
-      </button>
-      <button onclick="location.href='book.html'">
-        <div class="book">
-          <img src="assets/banner-books/book5.png" alt="Book Cover">
-          <h3>Remarkably Bright Creatures</h3>
-          <p>by Shelby Van Pelt</p>
-        </div>
-      </button>
-      <button onclick="location.href='book.html'">
-        <div class="book">
-          <img src="assets/banner-books/book6.png" alt="Book Cover">
-          <h3>Soul</h3>
-          <p>by Olivia Wilson</p>
-        </div>
-      </button>
-      <button onclick="location.href='book.html'">
-        <div class="book">
-          <img src="assets/banner-books/book7.png" alt="Book Cover">
-          <h3>Harry Potter and The Cursed Child</h3>
-          <p>by J,K Rowling</p>
-        </div>
-      </button>
-      <button onclick="location.href='book.html'">
-        <div class="book">
-          <img src="assets/banner-books/book8.png" alt="Book Cover">
-          <h3>James and The Giant Peach</h3>
-          <p>by Roald Dahl</p>
-        </div>
-      </button>
+    <% books.forEach(book => { %>
+  <a href='books/<%= book.id %>;'>  <div class="book">
+      <img src="<%= book.imageURL %>" alt="<%= book.bookTitle %>">
+      <h3><%= book.bookTitle %></h3>
+      <p>by <%= book.authorName %></p>
+    </div>
+  </a>
+<% }); %>
+ 
     </div>
     <section class="book-categories">
       <h2 class="categories-title">Explore Categories</h2>
