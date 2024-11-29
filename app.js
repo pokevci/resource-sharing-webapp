@@ -1,73 +1,77 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var mongoose = require("mongoose");
-var session = require("express-session");
-var flash = require("connect-flash");
-var expressLayouts = require("express-ejs-layouts");
-var MongoStore = require("connect-mongo");
-require('dotenv').config(); // Load environment variables
+var createError = require("http-errors");
+var express = require("express");
+var path = require("path");
+var cookieParser = require("cookie-parser");
+var logger = require("morgan");
 
-var bookRoutes = require('./routes/book');
-var userRoutes = require('./routes/user');
+var indexRouter = require("./routes/index");
+var usersRouter = require("./routes/users");
+var expressLayouts = require("express-ejs-layouts");
+const MongoStore = require("connect-mongo");
+const { default: mongoose } = require("mongoose");
+const session = require("express-session");
+require("dotenv").config();
+const saveBooks = require("./bookData");
 
 var app = express();
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI)
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.log(err));
+// view engine setup
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
-// View engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-app.use(logger('dev'));
+app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(expressLayouts);
 
+// Connect to MongoDB
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.log(err));
+
 // Session configuration
-app.use(session({
-    secret: process.env.SESSION_SECRET || 'your_secret_key',
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "your_secret_key",
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
-    cookie: { secure: process.env.NODE_ENV === 'production' } // Set to true in production
-}));
+    cookie: { secure: process.env.NODE_ENV === "production" }, // Set to true in production
+  })
+);
 
-app.use(flash());
-
-// Middleware to set user in locals
-app.use((req, res, next) => {
-    res.locals.user = req.session.user || null;
-    next();
+app.use("/book", indexRouter);
+app.use("/users", usersRouter);
+app.get("/donate", function (req, res) {
+  res.render("donate");
+});
+app.get("/materials", function (req, res) {
+  res.render("contribute");
+});
+app.get("/about", function (req, res) {
+  res.render("about");
+});
+app.get("/", function (req, res) {
+  res.redirect("/book");
 });
 
-// Routes
-app.use('/', userRoutes);
-app.use('/books', bookRoutes);
-
-// Home route
-app.get('/', (req, res) => {
-    res.redirect('/books');
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
 });
 
-// Catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    next(createError(404));
-});
+// error handler
+app.use(function (err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
-// Error handler
-app.use(function(err, req, res, next) {
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-    res.status(err.status || 500);
-    res.render('error');
+  // render the error page
+  res.status(err.status || 500);
+  res.render("error");
 });
 
 module.exports = app;

@@ -1,13 +1,13 @@
-import books from 'assets/js/books.js';
+import books from "assets/js/books.js";
 
-const bookDetailsContainer = document.getElementById('book-details');
+const bookDetailsContainer = document.getElementById("book-details");
 
 // Get book ID from query parameter
 const params = new URLSearchParams(window.location.search);
-const bookId = params.get('id');
+const bookId = params.get("id");
 
 // Find the book in the JSON data
-const book = books.find(b => b._id === bookId);
+const book = books.find((b) => b._id === bookId);
 
 if (book) {
   // Render book details
@@ -21,5 +21,5 @@ if (book) {
   `;
 } else {
   // Show error if book not found
-  bookDetailsContainer.innerHTML = '<p>Book not found!</p>';
+  bookDetailsContainer.innerHTML = "<p>Book not found!</p>";
 }

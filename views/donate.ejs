@@ -1,0 +1,270 @@
+<main>
+  <section class="donate-section">
+    <h1>Support Children's Education</h1>
+    <h2>Your Contribution Makes a Difference</h2>
+    <p>
+      At DataHub, we believe in empowering children by providing them the
+      materials they need to learn and grow. Your donations help provide
+      essential study resources for children in need, making a meaningful impact
+      on their education and future. Join us in building a better tomorrow.
+    </p>
+
+    <div class="donation-options">
+      <h3>Choose Your Donation Type</h3>
+      <form action="/submit-donation" method="POST">
+        <label for="donation-amount">Select Donation Amount:</label>
+        <select id="donation-amount" name="donation-amount">
+          <option value="10">10 USD</option>
+          <option value="25">25 USD</option>
+          <option value="50">50 USD</option>
+          <option value="100">100 USD</option>
+          <option value="custom">Custom Amount</option>
+        </select>
+
+        <label
+          for="custom-amount"
+          id="custom-amount-label"
+          style="display: none"
+          >Enter Custom Amount (USD):</label
+        >
+        <input
+          type="number"
+          id="custom-amount"
+          name="custom-amount"
+          style="display: none"
+          min="1"
+          step="1"
+        />
+
+        <h3>Donation Type</h3>
+        <label
+          ><input type="radio" name="donation-type" value="materials" checked />
+          Donate Materials</label
+        >
+        <label
+          ><input type="radio" name="donation-type" value="money" /> Donate
+          Money</label
+        >
+
+        <button type="submit" class="donate-button">Donate Now</button>
+      </form>
+    </div>
+
+    <div class="thank-you-message">
+      <h3>Thank you for your generosity!</h3>
+      <p>
+        Your donation will help provide much-needed materials for children to
+        further their education.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4>About Us</h4>
+        <p>
+          We provide the best services to our customers. Stay connected for more
+          updates.
+        </p>
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="donate.html">Help Us</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="materials.html">Donate Materials</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <p>Email: info@example.com</p>
+        <p>Phone: +123 456 7890</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const donationAmount = document.getElementById("donation-amount");
+  const customAmountInput = document.getElementById("custom-amount");
+  const customAmountLabel = document.getElementById("custom-amount-label");
+
+  donationAmount.addEventListener("change", function () {
+    if (this.value === "custom") {
+      customAmountInput.style.display = "block";
+      customAmountLabel.style.display = "block";
+    } else {
+      customAmountInput.style.display = "none";
+      customAmountLabel.style.display = "none";
+    }
+  });
+</script>
+<style>
+  /* general Styles */
+  body {
+    font-family: "Arial", sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  /* style for the header */
+
+  header {
+    background: linear-gradient(90deg, black, grey);
+    color: white;
+    text-align: center;
+  }
+
+  header nav ul {
+    list-style: none;
+    padding: 10px 0;
+  }
+
+  header nav ul li {
+    display: inline;
+    margin: 0 15px;
+  }
+
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  header nav ul li a:hover {
+    text-decoration: underline;
+  }
+
+  /* Donate Section */
+  .donate-section {
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  .donate-section h1 {
+    text-align: center;
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .donate-section h2 {
+    text-align: center;
+    color: #28a745;
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+
+  .donate-section p {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .donation-options {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .donation-options h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  .donation-options label {
+    font-size: 16px;
+    display: block;
+    margin: 10px 0;
+  }
+
+  .donation-options select,
+  .donation-options input[type="number"] {
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .donate-button {
+    background-color: #28a745;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .donate-button:hover {
+    background-color: #218838;
+  }
+
+  .thank-you-message {
+    background-color: #f0f0f0;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+
+  .thank-you-message h3 {
+    font-size: 22px;
+    color: #28a745;
+    margin-bottom: 10px;
+  }
+
+  .thank-you-message p {
+    font-size: 16px;
+    color: #555;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .donate-section {
+      padding: 20px;
+    }
+
+    .donate-button {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .donate-section h1 {
+      font-size: 24px;
+    }
+
+    .donate-section h2 {
+      font-size: 20px;
+    }
+
+    .donate-section p {
+      font-size: 14px;
+    }
+
+    .donate-button {
+      font-size: 16px;
+      padding: 10px;
+    }
+  }
+</style>

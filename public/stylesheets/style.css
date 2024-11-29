@@ -2,7 +2,605 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+/* Basic Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f7f7f7;
+} */
+/* Improved Navbar Styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #1a1a1a, #333);
+  padding: 15px 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-a {
-  color: #00B7FF;
+/* Logo Styling */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+  color: #ffdd57;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar-logo:hover {
+  color: #fff;
+}
+
+/* Navbar Menu */
+.navbar-menu {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-menu li {
+  margin: 0 15px;
+}
+
+.navbar-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  background-color: #ffdd57;
+  color: #333;
+}
+
+/* Login Button */
+.navbar-login {
+  padding: 10px 20px;
+  background-color: #ffdd57;
+  color: #333;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-login:hover {
+  background-color: #e6c556;
+  transform: scale(1.1);
+}
+
+.navbar-login:active {
+  background-color: #c7aa4e;
+  transform: scale(1);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  .navbar-menu.show {
+    display: flex;
+  }
+
+  .navbar-menu li {
+    margin: 10px 0;
+  }
+
+  .navbar-menu a {
+    padding: 10px 15px;
+  }
+
+  .navbar-menu a:hover {
+    background-color: #444;
+    color: #ffdd57;
+  }
+
+  .navbar-toggle {
+    display: block;
+    font-size: 1.5em;
+    color: #ffdd57;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-toggle {
+    display: none;
+  }
+}
+
+/* Book Categories Section */
+.book-categories {
+  padding: 2rem;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.categories-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.category {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.category-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.category h3 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.category:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.category:hover .category-overlay {
+  opacity: 1;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 1rem 1rem;
+  background: url("library.jpg") no-repeat center center/cover;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  animation: rainbow 7s linear infinite;
+  background: -webkit-linear-gradient(
+    left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.hero-content h1 {
+  font-size: 500px;
+}
+.search-bar {
+  width: 100%; /* Ensures the input field adapts to its container's width */
+  max-width: 900px; /* Increased maximum width to make it wider */
+  padding: 15px 20px; /* Increased padding for a taller input field */
+  font-size: 18px; /* Larger font for better readability */
+  border: 2px solid #3498db; /* Keeps the existing border style */
+  border-radius: 20px; /* Maintains rounded corners */
+  background-color: #f9f9f9; /* Light background */
+  color: #333; /* Text color */
+  outline: none; /* Removes the default outline */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  border-color: #2980b9; /* Changes border color on focus */
+  box-shadow: 0 0 5px rgba(41, 128, 185, 0.5); /* Adds a subtle focus effect */
+}
+
+.search-bar::placeholder {
+  color: #aaa; /* Lighter placeholder text */
+  font-style: italic; /* Italicized placeholder */
+}
+
+/* Featured Books */
+.featured-books {
+  padding: 2rem;
+  background-color: #fff;
+}
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.book-grid button {
+  outline: none;
+  border: none;
+}
+.book img {
+  width: 250px;
+  border-radius: 8px;
+}
+
+.search-bar {
+  font-size: 1em;
+  padding: 0.75rem;
+  border: 1px solid #222;
+  vertical-align: middle;
+  font-family: inherit;
+  width: 300px;
+}
+
+.welcome {
+  text-align: center;
+  padding: 5rem 1rem;
+  font-size: 2em;
+}
+
+.featured {
+  font-family: "Arial", sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #2c3e50;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding: 5px 0;
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.featured-books-banner {
+  background-color: #f7f7f7; /* Light grey background */
+  padding: 50px 0;
+  text-align: center;
+}
+
+.featured-books-banner h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.book-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.book-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.book-item h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.book-item p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.book-item .btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.book-item .btn:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .book-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.book-grid {
+  display: grid; /* Enables grid layout */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Creates columns that fill the space */
+  gap: 20px; /* Adds space between grid items */
+  padding: 20px;
+}
+
+.book {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book:hover {
+  transform: scale(1.05); /* Slightly enlarges the book on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Adds a stronger shadow on hover */
+}
+
+.book img {
+  width: 100%; /* Makes the image responsive */
+  height: auto; /* Ensures the image maintains its aspect ratio */
+  border-radius: 8px; /* Rounds the image corners */
+}
+
+.book h3 {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.book p {
+  color: #555; /* Lighter color for author name */
+  font-size: 14px;
+}
+
+@keyframes rainbow {
+  0% {
+    color: violet;
+  }
+  14% {
+    color: indigo;
+  }
+  28% {
+    color: blue;
+  }
+  42% {
+    color: green;
+  }
+  57% {
+    color: yellow;
+  }
+  71% {
+    color: orange;
+  }
+  85% {
+    color: red;
+  }
+  100% {
+    color: violet;
+  }
+}
+
+/* styles.css */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.library-banner {
+  background: url("https://via.placeholder.com/1920x600") no-repeat center
+    center/cover;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.library-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.banner-content p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.banner-button {
+  text-decoration: none;
+  background-color: #ff6f61;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.banner-button:hover {
+  background-color: #e05a50;
+}
+
+/* Footer Styles */
+.site-footer {
+  background-color: #333; /* Dark background color */
+  color: #fff; /* White text */
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+.site-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  flex: 1 1 calc(33.33% - 20px); /* Makes each column take up 1/3 of the space */
+  min-width: 250px; /* Ensures columns don't shrink too small */
+}
+
+.footer-column h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #f7d745; /* Accent color for headings */
+}
+
+.footer-column p,
+.footer-column ul,
+.footer-column li,
+.footer-column a {
+  margin: 0;
+  padding: 0;
+  color: #ccc; /* Lighter text for contrast */
+}
+
+.footer-column ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.footer-column li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  color: #f7d745; /* Link color */
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #bbb;
+}
+.search-bar {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.search-results {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+}
+
+.result-item {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.no-results {
+  color: #777;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-column {
+    flex: 1 1 100%; /* Make each column full-width */
+    text-align: center;
+  }
 }

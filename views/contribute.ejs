@@ -1,0 +1,286 @@
+<main>
+  <section class="donate-section">
+    <h1>Make a Difference Today!</h1>
+    <h2>Your Contribution Helps Children in Need</h2>
+    <p>
+      Your donations help provide educational resources to children in need,
+      making a lasting impact on their lives. Join us in empowering young minds
+      and building a brighter future.
+    </p>
+
+    <div class="donation-options">
+      <h3>Choose the Material Type:</h3>
+      <form
+        action="/submit-material"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <label for="material-type">Material Type</label>
+        <select id="material-type" name="material-type">
+          <option value="book">Book</option>
+          <option value="worksheet">Worksheet</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="upload-file">Upload Material</label>
+        <input
+          type="file"
+          id="upload-file"
+          name="upload-file"
+          accept="application/pdf,image/*,text/plain"
+        />
+
+        <button type="submit" class="donate-button">Donate Material</button>
+      </form>
+    </div>
+
+    <div id="thank-you-message" class="thank-you-message">
+      <h3>Thank You for Your Donation!</h3>
+      <p>
+        Your materials have been successfully uploaded and will help children in
+        need. Thank you for making a difference!
+      </p>
+    </div>
+
+    <div class="info-section">
+      <h2>Why Your Donations Matter</h2>
+      <p>
+        Every book, worksheet, and educational tool you donate helps us provide
+        critical resources to children who need them most.
+      </p>
+      <p>
+        Join us in our mission to empower young minds and open the doors to a
+        brighter future.
+      </p>
+      <p>Together, we can make a lasting impact in our community.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4>About Us</h4>
+        <p>
+          We provide the best services to our customers. Stay connected for more
+          updates.
+        </p>
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="donate.html">Help Us</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="materials.html">Donate Materials</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <p>Email: info@example.com</p>
+        <p>Phone: +123 456 7890</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+<style>
+  /* general Styles */
+
+  body {
+    font-family: "Arial", sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  /* styles for header */
+
+  header {
+    background: linear-gradient(90deg, black, grey);
+    color: white;
+    text-align: center;
+  }
+
+  header nav ul {
+    list-style: none;
+    padding: 10px 0;
+  }
+
+  header nav ul li {
+    display: inline;
+    margin: 0 15px;
+  }
+
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  header nav ul li a:hover {
+    text-decoration: underline;
+  }
+
+  .title-section {
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  .title-section h1 {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .title-section p {
+    text-align: center;
+    color: #555;
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+
+  /* Donate Section */
+  .donate-section {
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  .donate-section h1 {
+    text-align: center;
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .donate-section h2 {
+    text-align: center;
+    color: #28a745;
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+
+  .donate-section p {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .donation-options {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .donation-options h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  .donation-options label {
+    font-size: 16px;
+    display: block;
+    margin: 10px 0;
+  }
+
+  .donation-options select,
+  .donation-options input[type="file"],
+  .donation-options input[type="number"] {
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .donate-button {
+    background-color: #28a745;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+
+  .donate-button:hover {
+    background-color: #218838;
+  }
+
+  .info-section {
+    background-color: #f0f0f0;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+
+  .thank-you-message {
+    background-color: #d4edda;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 5px;
+    display: none;
+  }
+
+  .thank-you-message h3 {
+    font-size: 22px;
+    color: #28a745;
+    margin-bottom: 10px;
+  }
+
+  .thank-you-message p {
+    font-size: 16px;
+    color: #ff0000;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .donate-section {
+      padding: 20px;
+    }
+
+    .donate-button {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .donate-section h1 {
+      font-size: 24px;
+    }
+
+    .donate-section h2 {
+      font-size: 20px;
+    }
+
+    .donate-section p {
+      font-size: 14px;
+    }
+
+    .donate-button {
+      font-size: 16px;
+      padding: 10px;
+    }
+  }
+</style>

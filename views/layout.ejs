@@ -1,65 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
+<html>
+  <head>
+    <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library</title>
-  <link rel="stylesheet" href="/stylesheets/styles.css">
-  <link rel="stylesheet" href="/stylesheets/book.css">
-</head>
-<body>
-
-	<nav class="navbar">
-    <!-- Logo -->
-    <a href="#" class="navbar-logo">
-      <img src="/images/logo.png" alt="DataHubly Logo">
-      DataHub
-    </a>
-  </ul>
-  <input type="text" class="search-bar" placeholder="Search for learning materials...">
-  <div class="search-results">
-    <!-- Searched content will be displayed here -->
-  </div>
-
-
-  <!-- Login Button -->
-    <!-- Menu Items -->
-    <ul class="navbar-menu">
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="materials.html">Donate Materials</a></li>
-      <li><a href="donate.html">Support</a></li>
-    </nav>
-    <main>
-<%- body %>
-    </main>
-
-<footer class="site-footer">
-      <div class="container">
-          <div class="footer-content">
-              <!-- Column 1: About -->
-              <div class="footer-column">
-                  <h4>About Us</h4>
-                  <p>We provide the best services to our customers. Stay connected for more updates.</p>
-              </div>
-              <!-- Column 2: Links -->
-              <div class="footer-column">
-                  <h4>Quick Links</h4>
-                  <ul>
-                      <li><a href="donate.html">Help Us</a></li>
-                      <li><a href="about.html">About</a></li>
-                      <li><a href="materials.html">Donate Materials</a></li>
-                  </ul>
-              </div>
-              <!-- Column 3: Contact -->
-              <div class="footer-column">
-                  <h4>Contact</h4>
-                  <p>Email: info@example.com</p>
-                  <p>Phone: +123 456 7890</p>
-              </div>
-          </div>
-          <!-- Copyright Section -->
-          <div class="footer-bottom">
-              <p>&copy; 2024 Your Company. All Rights Reserved.</p>
-          </div>
-      </div>
-  </footer>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <!-- Logo -->
+      <a href="/book" class="navbar-logo">
+        <img src="images/logo.png" alt="DataHubly Logo">
+        DataHub
+      </a>
+    </ul>
+    <input type="text" class="search-bar" placeholder="Search for learning materials...">
+    <div class="search-results">
+      <!-- Searched content will be displayed here -->
+    </div>
+    <!-- Login Button -->
+      <!-- Menu Items -->
+      <ul class="navbar-menu">
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/materials"> Materials</a></li>
+        <li><a href="/donate">Support</a></li>
+      </nav>
+      <%- body %>
+  </body>
+  </html>
