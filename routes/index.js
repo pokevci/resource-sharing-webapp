@@ -12,7 +12,7 @@ router.get("/", async function (req, res, next) {
 
 router.get('/search', async (req, res) => {
   const searchQuery = req.query.search;
-  console.log(searchQuery);
+  //console.log(searchQuery);
 
   let searchedBooks;
 
