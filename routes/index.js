@@ -10,6 +10,26 @@ router.get("/", async function (req, res, next) {
   res.render("index", { books });
 });
 
+router.get('/search', async (req, res) => {
+  const searchQuery = req.query.search;
+  console.log(searchQuery);
+
+  let searchedBooks;
+
+  // If a search query is provided, filter the books by bookTitle
+  if (searchQuery) {
+    searchedBooks = await Book.find({ bookTitle: { $regex: searchQuery, $options: 'i' } }); // Case-insensitive search
+  } else {
+    // If no search query, return an empty array
+    searchedBooks = [];
+  }
+
+  res.render('search', {
+    books: searchedBooks, // Use searchedBooks for rendering
+    searchQuery
+  });
+});
+
 router.post("/", async (req, res) => {
   try {
     const {

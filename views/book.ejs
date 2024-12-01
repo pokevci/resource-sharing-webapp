@@ -1,18 +1,4 @@
     <style>
-      h1 {
-        font-size: 2.5em;
-        margin-bottom: 10px;
-      }
-
-      h2 {
-        font-size: 1.8em;
-        margin: 10px 0;
-      }
-
-      p {
-        line-height: 1.6;
-        margin: 10px 0;
-      }
 
       #book-container {
         background: white;
@@ -23,8 +9,12 @@
         flex-wrap: wrap;
       }
 
-      #book-container * {
+      #book-container div {
         flex: 1;
+      }
+
+      #book-container div *:not(.btn) {
+      padding: .5rem 1rem;
       }
 
       img {
@@ -36,8 +26,7 @@
       }
 
       .btn {
-        display: inline-block;
-        margin-top: 20px;
+        margin: 1rem;
         padding: 10px 15px;
         background-color: #007bff;
         color: white;
@@ -47,21 +36,19 @@
       }
 
       img {
-        max-width: 600px;
         width: 100%;
-      }
+	aspect-ratio: 1/1.5;
 
-      .cyn {
-        padding: 3rem 1rem 1rem 1rem;
       }
 
       .btn:hover {
         background-color: #0056b3;
       }
 
-      @media screen and (max-width: 694px){
+      @media screen and (max-width: 768px){
         #book-container {
         flex-direction: column;
+	gap: 1rem;
       }
       }
     </style>
